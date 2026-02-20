@@ -6,19 +6,25 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix",
     "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky",
-    "check": "npm run lint && npm run format",
-    "commit": "npm run check && cz"
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "lint-staged": {
-    "*.{css,scss}": "npm run stylelint:fix",
-    "*.{js,jsx,ts,tsx}": "npm run lint",
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": "npm run format"
+    "*.{css,scss}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "config": {
     "commitizen": {
