@@ -1,0 +1,13 @@
+# Зависимости
+node_modules
+package-lock.json
+
+# Сборка и результат компиляции
+dist
+build
+*.min.js
+
+# Документация и прочее
+.idea
+.vscode
+.env

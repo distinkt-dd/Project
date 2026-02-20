@@ -1,7 +1,5 @@
-import './styles/index.css'
+import './styles/index.css';
 
-function App() {
-	return <>Начало</>
+export function App() {
+  return <></>;
 }
-
-export default App
