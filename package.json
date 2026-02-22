@@ -1,7 +1,7 @@
 {
   "name": "project",
   "private": true,
-  "version": "0.0.31",
+  "version": "0.0.34",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky install",
-    "commit": "cz & npx standard-version",
+    "commit": "standard-version & git add -A & cz",
     "cypress:open": "cypress open"
   },
   "lint-staged": {
