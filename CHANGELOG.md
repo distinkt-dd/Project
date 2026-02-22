@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.36](https://github.com/distinkt-dd/Project/compare/v0.0.35...v0.0.36) (2026-02-22)
+
+### Features
+
+- **dep:** добавил линтер fsd ([08db4b4](https://github.com/distinkt-dd/Project/commit/08db4b4e391c7512b02b7125ec6594fc6e33d49e))
+
 ### [0.0.35](https://github.com/distinkt-dd/Project/compare/v0.0.34...v0.0.35) (2026-02-22)
 
 ### Features
