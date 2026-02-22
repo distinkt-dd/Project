@@ -24,11 +24,11 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@app": ["./src/app/index.ts"],
-      "@pages": ["./src/pages/index.ts"],
-      "@widgets": ["./src/widgets/index.ts"],
+      "@pages/*": ["./src/pages/*"],
+      "@widgets/*": ["./src/widgets/*"],
       "@shared/*": ["./src/shared/*"],
-      "@features/*": ["./src/features/index.ts"],
-      "@entities": ["./src/entities/index.ts"]
+      "@features/*": ["./src/features/*"],
+      "@entities/*": ["./src/entities/*"]
     }
   },
   "include": ["src"]
