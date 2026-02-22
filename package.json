@@ -1,7 +1,7 @@
 {
   "name": "project",
   "private": true,
-  "version": "0.0.34",
+  "version": "0.0.35",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,8 @@
     "format:check": "prettier --check .",
     "prepare": "husky install",
     "commit": "standard-version & git add -A & cz",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "steiger": "npx steiger ./src --watch"
   },
   "lint-staged": {
     "*.{css,scss}": [
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.1",
+    "@feature-sliced/steiger-plugin": "^0.5.7",
     "@tailwindcss/vite": "^4.2.0",
     "@types/axios": "^0.9.36",
     "@types/node": "^24.10.1",
@@ -62,6 +64,7 @@
     "lint-staged": "^16.2.7",
     "prettier": "3.8.1",
     "standard-version": "^9.5.0",
+    "steiger": "^0.5.11",
     "tailwindcss": "^4.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.9.3",
