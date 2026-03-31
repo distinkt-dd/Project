@@ -1,5 +1,4 @@
-@import 'tailwindcss';
-
-body {
-  background-color: red;
-}
+@import './normalize';
+@import './variables';
+@import './globals';
+@import './tailwind';
