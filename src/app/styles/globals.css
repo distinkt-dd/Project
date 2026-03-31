@@ -1,0 +1,108 @@
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+.d-n {
+  display: none !important;
+}
+
+body {
+  font-size: 18px;
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  color: var(--neutral-default-color);
+  background-color: var(--background-body);
+  height: 100%;
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: inherit;
+  font-family: var(--font-family-accent);
+  font-weight: 700;
+}
+
+h1,
+.h1 {
+  font-size: 52px;
+  line-height: 1.07;
+}
+
+h2,
+.h2 {
+  font-size: 32px;
+  line-height: 1;
+}
+
+h3,
+.h3 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+:focus-visible {
+  outline: var(--accent-pink-color);
+}
+
+:focus {
+  outline: none;
+}
+
+p {
+  color: inherit;
+  font-family: var(--font-family-base);
+}
+
+p.text {
+  font-size: 20px;
+  line-height: 1.32;
+}
+
+p.text-s {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+p.text-l {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
