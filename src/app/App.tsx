@@ -6,6 +6,7 @@ export function App() {
   return (
     <div className="bg-amber-900 text-center">
       <MainPage />
+      <h1>Hello World</h1>
       <SecondPage />
     </div>
   );

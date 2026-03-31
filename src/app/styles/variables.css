@@ -1,0 +1,24 @@
+:root {
+  --font-family-accent: 'Gropled', sans-serif;
+  --font-family-base: 'Inter', sans-serif;
+
+  --line-color: rgba(44, 44, 46, 0.4);
+  --line-color-white: rgba(255, 255, 255, 0.4);
+
+  --neutral-default-color: #ffffff;
+  --neutral-secondary-color: #2c2c2e;
+
+  --accent-red-color: #fb4c47;
+  --accent-pink-color: #ff89ed;
+  --accent-purple-color: #72559b;
+  --accent-dark-purple-color: #271d35;
+  --accent-blue-color: #64a2ff;
+  --accent-orange-color: #fcaf6c;
+
+  --lable-blue-color: rgba(37, 226, 255, 0.4);
+  --lable-green-color: rgba(113, 255, 37, 0.4);
+  --lable-purple-color: rgba(118, 125, 255, 0.4);
+  --lable-pink-color: rgba(255, 37, 244, 0.4);
+
+  --bg-blur: blur(30px);
+}
