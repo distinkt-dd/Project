@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.39](https://github.com/distinkt-dd/Project/compare/v0.0.38...v0.0.39) (2026-03-31)
+
+### Features
+
+- **app:** подключение заготовок под стили ([f9ee71e](https://github.com/distinkt-dd/Project/commit/f9ee71e1857f01db300c272a71c9d84155b1e468))
+
 ### 0.0.38 (2026-03-31)
 
 ### Features
