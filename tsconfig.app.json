@@ -7,8 +7,7 @@
     "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
-    "baseUrl": ".", // Изменили baseUrl на корень проекта
-
+    // "baseUrl": ".", // (устаревшая опция, настроен paths, в ней нет необходимости) Изменили baseUrl на корень проекта
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
