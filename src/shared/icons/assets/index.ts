@@ -1,5 +1,6 @@
 export { default as ArrowLeftCircle } from './arrow-left-circle.svg?react';
 export { default as ArrowNortheast } from './arrow-northeast.svg?react';
+export { default as ArrowNortheastBold } from './arrow-northeast-bold.svg?react';
 export { default as Burger } from './burger.svg?react';
 export { default as Check } from './check.svg?react';
 export { default as CloseCircle } from './close-circle.svg?react';
