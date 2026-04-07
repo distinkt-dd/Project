@@ -15,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   onMouseUp: externalOnMouseUp,
   onMouseEnter: externalOnMouseEnter,
   onMouseLeave: externalOnMouseLeave,
+  className,
   children,
   ...props
 }) => {
@@ -27,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
       ? 'arrowNortheastBold'
       : 'arrowNortheast';
 
-  const buttonClasses = [styles.button, styles[variant]]
+  const buttonClasses = [styles.button, styles[variant], className]
     .filter(Boolean)
     .join(' ');
 
