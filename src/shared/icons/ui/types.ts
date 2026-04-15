@@ -3,6 +3,7 @@ import type { SVGProps } from 'react';
 export type IconName =
   | 'arrowLeftCircle'
   | 'arrowNortheast'
+  | 'arrowNortheastBold'
   | 'burger'
   | 'check'
   | 'closeCircle'

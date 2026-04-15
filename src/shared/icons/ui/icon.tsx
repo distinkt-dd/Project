@@ -3,6 +3,7 @@ import { type IconName, type IconProps } from './types';
 import {
   ArrowLeftCircle,
   ArrowNortheast,
+  ArrowNortheastBold,
   Burger,
   Check,
   CloseCircle,
@@ -28,6 +29,7 @@ import {
 const iconComponents: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
   arrowLeftCircle: ArrowLeftCircle,
   arrowNortheast: ArrowNortheast,
+  arrowNortheastBold: ArrowNortheastBold,
   burger: Burger,
   check: Check,
   closeCircle: CloseCircle,
