@@ -1,0 +1,60 @@
+.themeSwitcherLabel {
+  position: relative;
+  display: inline-block;
+  width: 88px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.themeSwitcherCheckbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.themeSwitcherSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 2px solid var(--accent-purple-color);
+  transition: border-color 0.15s ease;
+  overflow: hidden;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.themeSwitcherSlider::before {
+  content: '';
+  position: absolute;
+  height: 44px;
+  width: 44px;
+  left: -2px;
+  top: -2px;
+  border-radius: 20px;
+  background-color: var(--accent-purple-color);
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.themeSwitcherCheckbox:checked + .themeSwitcherSlider {
+  border-color: var(--accent-orange-color);
+}
+
+.themeSwitcherCheckbox:checked + .themeSwitcherSlider::before {
+  transform: translateX(44px);
+  background-color: var(--accent-orange-color);
+}
