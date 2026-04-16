@@ -1,29 +1,38 @@
 import type { SVGProps } from 'react';
 
 export type IconName =
-  | 'arrowLeftCircle'
+  | 'arrowLeftCircleM'
+  | 'arrowLeftCircleS'
   | 'arrowNortheast'
   | 'arrowNortheastBold'
-  | 'burger'
+  | 'burgerM'
+  | 'burgerS'
   | 'check'
   | 'closeCircle'
   | 'close'
-  | 'down'
-  | 'edit'
-  | 'eyeSlash'
-  | 'eye'
+  | 'downM'
+  | 'downS'
+  | 'editM'
+  | 'editS'
+  | 'eyeMSlash'
+  | 'eyeM'
+  | 'eyeS'
   | 'fullBrightness'
   | 'grid'
-  | 'left'
+  | 'leftM'
+  | 'leftS'
   | 'like'
   | 'minus'
   | 'moon'
   | 'notifications'
   | 'plus'
-  | 'right'
+  | 'rightM'
+  | 'rightS'
   | 'search'
-  | 'trash'
-  | 'up';
+  | 'trashM'
+  | 'trashS'
+  | 'upM'
+  | 'upS';
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
   name: IconName;

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styles from './Button.module.css';
 import { Icon } from '@shared/icons';
 
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'search';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -75,6 +75,7 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {children}
       {variant === 'tertiary' && <Icon name={iconName} />}
+      {variant === 'search' && <Icon name="search" />}
     </button>
   );
 };
