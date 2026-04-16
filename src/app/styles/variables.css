@@ -21,4 +21,11 @@
   --lable-pink-color: rgba(255, 37, 244, 0.4);
 
   --bg-blur: blur(30px);
+
+  --gradient-day: #0c0d2a33;
+  --gradient-night: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(161, 150, 197, 0.08) 100%
+  );
 }
