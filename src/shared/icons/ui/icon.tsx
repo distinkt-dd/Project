@@ -33,6 +33,8 @@ import {
   TrashS,
   UpM,
   UpS,
+  Gmail,
+  Telegram,
 } from '../assets';
 
 const iconComponents: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
@@ -68,6 +70,8 @@ const iconComponents: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
   trashS: TrashS,
   upM: UpM,
   upS: UpS,
+  gmail: Gmail,
+  telegram: Telegram,
 };
 
 export const Icon: React.FC<IconProps> = ({
