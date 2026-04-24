@@ -1,11 +1,10 @@
 import React, {
   forwardRef,
   useImperativeHandle,
-  useMemo,
-  useRef,
   useState,
+  useMemo,
 } from 'react';
-import styles from './Input.module.css';
+import styles from './input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelText?: string;
@@ -30,10 +29,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const [internalValue, setInternalValue] = useState(() =>
-      externalValue !== undefined ? externalValue : ''
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const [internalValue, setInternalValue] = useState<string>(
+      externalValue != null ? String(externalValue) : ''
     );
+
+    const computedValue = useMemo(() => {
+      if (externalValue !== undefined) {
+        return String(externalValue);
+      }
+      return internalValue;
+    }, [externalValue, internalValue]);
 
     const generatedId = React.useId();
     const inputId = id || generatedId;
@@ -44,32 +50,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onChange?.(e);
     };
 
-    useImperativeHandle(ref, () => inputRef.current!);
+    useImperativeHandle(ref, () => inputRef.current!, []);
 
-    const hasValue = useMemo(
-      () => internalValue !== '' && internalValue !== undefined,
-      [internalValue]
-    );
+    const hasValue = internalValue !== '' && internalValue !== undefined;
+    const hasPlaceholder = placeholder !== undefined && placeholder !== '';
 
-    const hasPlaceholder = useMemo(
-      () => placeholder !== undefined && placeholder !== '',
-      [placeholder]
-    );
-
-    const inputClassName = useMemo(
-      () =>
-        [
-          styles.input,
-          errorText ? styles.withError : '',
-          leftIcon ? styles.withLeftIcon : '',
-          rightIcon ? styles.withRightIcon : '',
-          hasValue ? styles.withValue : '',
-          hasPlaceholder ? styles.withPlaceholder : '',
-        ]
-          .filter(Boolean)
-          .join(' '),
-      [errorText, leftIcon, rightIcon, hasValue, hasPlaceholder]
-    );
+    const inputClassName = [
+      styles.input,
+      errorText ? styles.withError : '',
+      leftIcon ? styles.withLeftIcon : '',
+      rightIcon ? styles.withRightIcon : '',
+      hasValue ? styles.withValue : '',
+      hasPlaceholder ? styles.withPlaceholder : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
 
     return (
       <div className={styles.container}>
@@ -78,8 +73,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             id={inputId}
             className={inputClassName}
-            ref={inputRef}
-            value={internalValue}
+            ref={(el) => {
+              inputRef.current = el;
+              if (typeof ref === 'function') ref(el);
+              else if (ref) ref.current = el;
+            }}
+            value={computedValue}
             onChange={handleChange}
             autoComplete={autoComplete}
             placeholder={placeholder}
