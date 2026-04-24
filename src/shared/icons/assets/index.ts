@@ -30,3 +30,5 @@ export { default as TrashM } from './trash-m.svg?react';
 export { default as TrashS } from './trash-s.svg?react';
 export { default as UpM } from './up-m.svg?react';
 export { default as UpS } from './up-s.svg?react';
+export { default as Gmail } from './gmail.svg?react';
+export { default as Telegram } from './telegram.svg?react';

@@ -32,7 +32,9 @@ export type IconName =
   | 'trashM'
   | 'trashS'
   | 'upM'
-  | 'upS';
+  | 'upS'
+  | 'gmail'
+  | 'telegram';
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
   name: IconName;
