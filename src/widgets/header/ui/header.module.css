@@ -1,0 +1,148 @@
+.header {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: var(--neutral-secondary-color, #2c2c2e);
+  background-color: var(--neutral-default-color, #ffffff);
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-block: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+}
+
+.logoWrapper {
+  width: 73px;
+  height: 36px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.nav {
+  width: 453px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--accent-purple-color, #72559b);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.link:focus-visible {
+  color: var(--accent-orange-color, #fcaf6c);
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  text-transform: uppercase;
+}
+
+.controlsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: 12px;
+  height: 46px;
+}
+
+.personalWrapper {
+  position: relative;
+  width: 258px;
+  height: 46px;
+  display: flex;
+  align-items: end;
+}
+
+.personalWrapper .personalButton {
+  width: 100%;
+  justify-content: center;
+}
+
+.dropdown {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  width: 253px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 20px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: var(
+    --gradient-night,
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(161, 150, 197, 0.08) 100%
+    )
+  );
+  padding: 20px 20px 40px;
+}
+
+.actionIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(44, 44, 46, 0.6);
+  padding: 0 10.5px 12px;
+}
+
+.notificationsWrapper {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-pink-color, #ff89ed);
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: inherit;
+}
+
+.iconWrapper:hover {
+  border-radius: 8px;
+  outline: 1.5px solid var(--accent-purple-color, #72559b);
+}
+
+.iconWrapper:focus-visible {
+  color: var(--accent-orange-color, #fcaf6c);
+}
+
+.personalList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
