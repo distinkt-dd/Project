@@ -8,6 +8,7 @@
 }
 
 .searchWrapper {
+  height: 44px;
   position: relative;
   display: flex;
   align-items: center;

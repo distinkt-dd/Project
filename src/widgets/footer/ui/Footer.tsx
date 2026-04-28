@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.logoSection}>
           <div className={styles.logo}>
-            <img src="../../../../public/logo.svg" alt="ТИМЛАБ" />
+            <img src="../../../../public/logo-dark.svg" alt="ТИМЛАБ" />
           </div>
           <span className={styles.copyright}>© 2026«ТИМЛАБ»</span>
         </div>
