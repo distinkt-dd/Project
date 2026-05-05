@@ -1,10 +1,10 @@
-import styles from './header.module.css';
-import logoLight from '/logo-light.svg';
-import logoDark from '/logo-dark.svg';
-import { Button, Search, ThemeSwitcher } from '@shared/ui';
-import { useState, useRef, useEffect } from 'react';
 import { Icon } from '@shared/icons';
+import { Button, Search, ThemeSwitcher } from '@shared/ui';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import styles from './header.module.css';
+import logoDark from '/logo-dark.svg';
+import logoLight from '/logo-light.svg';
 
 //TODO Список маршрутов, на которых личный кабинет не отображается
 const hiddenOnRoutes = ['/login', '/register', '/profile'];
