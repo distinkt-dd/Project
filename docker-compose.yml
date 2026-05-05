@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui:latest
+    container_name: swagger-ui
+    ports:
+      - "8080:8080"
+    environment:
+      - SWAGGER_JSON=/etc/swagger/openapi.yaml
+    volumes:
+      - ./schema.yml:/etc/swagger/openapi.yaml:ro
+    restart: unless-stopped
