@@ -1,7 +1,7 @@
 {
   "name": "project",
   "private": true,
-  "version": "0.0.39",
+  "version": "0.0.40",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,8 @@
     "prepare": "husky install",
     "commit": "standard-version & git add -A & cz",
     "cypress:open": "cypress open",
-    "steiger": "npx steiger ./src --watch"
+    "steiger": "npx steiger ./src --watch",
+    "mock": "prism mock ./schema.yml"
   },
   "lint-staged": {
     "*.{css,scss}": [
