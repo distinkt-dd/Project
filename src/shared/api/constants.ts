@@ -1,0 +1,10 @@
+export const USERS = '/users/';
+export const USERS_ME = '/users/me/';
+export const AUTH = '/auth/token/';
+export const SKILLS = '/skills/';
+export const SPECIALIZATIONS = '/specializations/';
+export const FIELDS = '/fields/';
+export const PROJECTS = '/projects/';
+export const PROJECTS_ROLES = '/project-roles/';
+export const ROLE_INTERESTS = '/role-interests/';
+export const MEMBERSHIPS = '/project-memberships/';
