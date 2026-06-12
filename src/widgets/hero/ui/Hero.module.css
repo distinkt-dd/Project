@@ -1,0 +1,65 @@
+.section {
+  background-image: url('../assets/hero-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 32px;
+  margin-top: 209px;
+}
+
+.signature {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 8.5%;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.rightSignature {
+  padding-top: 35px;
+  max-width: 408px;
+  width: 100%;
+}
+
+.accent {
+  color: var(--accent-red-color);
+}
+
+.left {
+  max-width: 660px;
+  background: linear-gradient(
+    rgba(242, 242, 247, 0.5) 0%,
+    rgba(122, 146, 186, 0) 100%
+  );
+  backdrop-filter: blur(10px);
+  padding: 35px 33px 61px 0;
+}
+
+.title {
+  margin-top: 135px;
+  text-transform: uppercase;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.titleAccent {
+  font-size: 68px;
+}
+
+.titleSignature {
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}

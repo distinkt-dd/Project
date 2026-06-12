@@ -12,7 +12,7 @@ body {
   font-size: 18px;
   font-family: var(--font-family-base);
   font-weight: 400;
-  color: var(--neutral-default-color);
+  color: var(--neutral-secondary-color);
   background-color: var(--background-body);
   height: 100%;
 }
