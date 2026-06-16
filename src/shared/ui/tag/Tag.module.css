@@ -1,0 +1,36 @@
+.tag {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Цвета фонов */
+.blue {
+  background-color: var(--lable-blue-color);
+}
+
+.green {
+  background-color: var(--lable-green-color);
+}
+
+.purple {
+  background-color: var(--lable-purple-color);
+}
+
+.pink {
+  background-color: var(--lable-pink-color);
+}
+
+.neutral {
+  background-color: var(--neutral-grey-color);
+}
+
+/* Цвета текстов */
+.black {
+  color: var(--neutral-secondary-color);
+}
+
+.white {
+  color: var(--neutral-default-color);
+}
