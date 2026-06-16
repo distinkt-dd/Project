@@ -26,13 +26,11 @@
 .primary:hover {
   border: 3px solid var(--neutral-secondary-color, #2c2c2e);
   font-size: 24px;
-  font-weight: 500;
 }
 
 .primary:active {
   border: 1px solid var(--neutral-secondary-color, #2c2c2e);
   font-size: 20px;
-  font-weight: 400;
 }
 
 .primary:focus-visible {
@@ -50,13 +48,11 @@
 .secondary:hover {
   background-color: var(--accent-dark-purple-color, #271d35);
   font-size: 24px;
-  font-weight: 500;
 }
 
 .secondary:active {
   background-color: var(--accent-dark-purple-color, #271d35);
   font-size: 20px;
-  font-weight: 400;
 }
 
 .secondary:focus-visible {
