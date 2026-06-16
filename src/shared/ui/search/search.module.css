@@ -48,6 +48,19 @@
   font-size: 18px;
 }
 
+.button:focus-visible,
+.button:hover {
+  background-color: rgba(216, 226, 236, 1);
+  color: rgba(44, 44, 46, 1);
+  font-size: 18px;
+}
+
+.button:active {
+  background-color: rgba(216, 226, 236, 1);
+  color: rgba(44, 44, 46, 1);
+  font-size: 20px;
+}
+
 .dropdown {
   position: absolute;
   display: flex;
@@ -103,9 +116,6 @@
 .dropdownItem:hover,
 .dropdownItem:focus-visible,
 .highlighted {
-  background: linear-gradient(
-    0,
-    var(--line-color-white, rgba(255, 255, 255, 0.4)) 0%,
-    var(--accent-orange-color, #fcaf6c) 100%
-  );
+  background: rgba(216, 226, 236, 1);
+  backdrop-filter: blur(30px);
 }
