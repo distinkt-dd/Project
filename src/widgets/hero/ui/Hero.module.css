@@ -22,7 +22,7 @@
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 8.5%;
+  letter-spacing: 8%;
   display: inline-block;
   line-height: 1.1;
 }
@@ -39,12 +39,24 @@
 
 .left {
   max-width: 660px;
+  padding: 35px 47px 61px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: calc(-50vw + 50%);
   background: linear-gradient(
     rgba(242, 242, 247, 0.5) 0%,
     rgba(122, 146, 186, 0) 100%
   );
   backdrop-filter: blur(10px);
-  padding: 35px 33px 61px 0;
+  z-index: -1;
 }
 
 .title {
