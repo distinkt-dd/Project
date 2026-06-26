@@ -6,3 +6,4 @@ export { AuthService } from './auth';
 export { ProjectService } from './project';
 export { ProjectRoleService } from './project-role';
 export { RoleInterestService } from './role-interest';
+export { MembershipService } from './membership';
