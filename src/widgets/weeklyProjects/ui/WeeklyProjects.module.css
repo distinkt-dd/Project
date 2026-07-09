@@ -1,0 +1,44 @@
+.section {
+  background: linear-gradient(
+    rgba(254, 255, 255, 1) 0%,
+    var(--accent-purple-color) 100%
+  );
+  padding: 46px 0 65px;
+  position: relative;
+  z-index: 0;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 663px;
+  height: 663px;
+  background-image: url('../assets/fuzz_bg.png');
+  z-index: -1;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.title {
+  text-transform: uppercase;
+  padding-bottom: 13px;
+}
+
+.button {
+  color: var(--neutral-default-color);
+  border-color: var(--neutral-default-color);
+  width: 286px;
+}
