@@ -64,7 +64,7 @@ export class Api {
     return this.request<T>(uri, 'GET', undefined, params);
   }
 
-  post<T>(uri: string, data: object): Promise<T> {
+  post<T>(uri: string, data?: object): Promise<T> {
     return this.request<T>(uri, 'POST', data);
   }
 
