@@ -1,6 +1,10 @@
 .item {
   border-radius: 20px;
-  background-color: firebrick;
+  background: linear-gradient(
+    rgba(255, 255, 255, 1) 0%,
+    rgba(161, 150, 197, 0.2) 100%
+  );
+  backdrop-filter: blur(10px);
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -16,6 +20,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .name {
@@ -23,7 +28,7 @@
   font-weight: 500;
   line-height: 130%;
   color: var(--neutral-secondary-color);
-  inline-size: 347px;
+  max-inline-size: 347px;
   letter-spacing: 1%;
 }
 
