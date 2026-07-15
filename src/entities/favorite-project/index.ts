@@ -1,0 +1,1 @@
+export { FavoriteProjectService } from './FavoriteProjectService';
