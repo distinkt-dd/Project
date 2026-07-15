@@ -8,3 +8,4 @@ export { ProjectRoleService } from './project-role';
 export { RoleInterestService } from './role-interest';
 export { MembershipService } from './membership';
 export { PortfolioWorkService } from './portfolioWork';
+export { FavoriteProjectService } from './favorite-project';
