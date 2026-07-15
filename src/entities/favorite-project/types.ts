@@ -1,13 +1,13 @@
 export interface RolePreview {
   id: number;
   specialization_id: number;
-  specialization_name?: string;
+  specialization_name: string | null;
 }
 
 export interface ProjectPreview {
   id: number;
   title: string;
-  image?: string;
+  image: string | null;
   roles_preview: RolePreview[];
 }
 
