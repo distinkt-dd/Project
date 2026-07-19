@@ -1,5 +1,6 @@
 import { Button, Tag } from '@shared/ui';
 import styles from './ProjectItem.module.css';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectItemProps {
   id: number;
@@ -14,6 +15,8 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
   image,
   tags,
 }: ProjectItemProps) => {
+  const navigate = useNavigate();
+
   return (
     <li className={styles.item} key={id}>
       <div className={styles.left}>
@@ -28,7 +31,11 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
             ))}
           </div>
         )}
-        <Button variant="tertiary" className={styles.button}>
+        <Button
+          variant="tertiary"
+          className={styles.button}
+          onClick={() => navigate('/project-card/1')}
+        >
           К проекту
         </Button>
       </div>

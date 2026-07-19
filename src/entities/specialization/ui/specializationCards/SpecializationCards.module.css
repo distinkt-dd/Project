@@ -1,0 +1,31 @@
+.list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 32px;
+}
+
+.specializationCards {
+  overflow: visible;
+  position: relative;
+}
+
+.TLImg {
+  position: absolute;
+  width: 453px;
+  height: 621px;
+  transform: rotate(28.51deg);
+  top: -260px;
+  left: -155px;
+  z-index: -1;
+}
+
+.RBImg {
+  position: absolute;
+  width: 470px;
+  height: 644px;
+  transform: rotate(-90deg);
+  bottom: -400px;
+  right: -140px;
+  z-index: -1;
+}

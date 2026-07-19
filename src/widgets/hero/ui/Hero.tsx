@@ -1,7 +1,10 @@
 import styles from './Hero.module.css';
 import { Button } from '@shared/ui';
+import { useNavigate } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -27,8 +30,12 @@ export const Hero: React.FC = () => {
             или присоединись к существующему
           </span>
           <nav className={styles.buttonContainer}>
-            <Button variant="secondary">Найти команду</Button>
-            <Button>Создать команду</Button>
+            <Button variant="secondary" onClick={() => navigate('/projects')}>
+              Найти команду
+            </Button>
+            <Button onClick={() => navigate('/edit-project')}>
+              Создать команду
+            </Button>
           </nav>
         </div>
         <span className={`${styles.signature} ${styles.rightSignature}`}>
