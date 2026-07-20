@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { AuthUser, TokenPairResponse } from '@entities/auth/types';
+import { REHYDRATE } from 'redux-persist';
 
 interface AuthState {
   user: AuthUser | null;
@@ -39,6 +40,12 @@ export const authSlice = createSlice({
     clearError: (state) => {
       state.error = null;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(REHYDRATE, (state) => {
+      state.loading = false;
+      state.error = null;
+    });
   },
 });
 
