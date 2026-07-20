@@ -15,6 +15,7 @@ import { ErrorPage } from '@pages/error/ErrorPage';
 import { PolicyPage } from '@pages/policy/PolicyPage';
 import { LoginPage } from '@pages/login/LoginPage';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
+import { ProtectedRoute } from '@app';
 
 export function App() {
   return (
@@ -25,17 +26,18 @@ export function App() {
         <Route path="policy" element={<PolicyPage />} />
         <Route path="login" element={<LoginPage />} />
 
-        {/* Защищенные маршруты, доступные только авторизованным пользователям */}
-        {/* TODO: добавить компонент для защиты маршрутов, который будет проверять авторизацию пользователя */}
-        <Route path="projects" element={<ProjectsPage />} />
-        <Route path="participants" element={<ParticipantsPage />} />
-        <Route path="project-card/:id" element={<ProjectCardPage />} />
-        <Route path="profile/:id" element={<ProfilePage />} />
-        <Route path="my-profile" element={<MyProfilePage />} />
-        <Route path="edit-profile" element={<EditProfilePage />} />
-        <Route path="edit-project" element={<EditProjectPage />} />
-        <Route path="requests" element={<RequestsPage />} />
-        <Route path="favorites" element={<FavoritesPage />} />
+        {/* Защищённые маршруты */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="participants" element={<ParticipantsPage />} />
+          <Route path="project-card/:id" element={<ProjectCardPage />} />
+          <Route path="profile/:id" element={<ProfilePage />} />
+          <Route path="my-profile" element={<MyProfilePage />} />
+          <Route path="edit-profile" element={<EditProfilePage />} />
+          <Route path="edit-project" element={<EditProjectPage />} />
+          <Route path="requests" element={<RequestsPage />} />
+          <Route path="favorites" element={<FavoritesPage />} />
+        </Route>
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
