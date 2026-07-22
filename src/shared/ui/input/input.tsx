@@ -6,11 +6,15 @@ import React, {
 } from 'react';
 import styles from './input.module.css';
 
+type InputType = 'text' | 'email' | 'password';
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelText?: string;
   errorText?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  onRightIconClick?: () => void;
+  type?: InputType;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -22,6 +26,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       errorText,
       leftIcon,
       rightIcon,
+      onRightIconClick,
+      type = 'text',
       autoComplete = 'off',
       value: externalValue,
       onChange,
@@ -82,6 +88,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onChange={handleChange}
             autoComplete={autoComplete}
             placeholder={placeholder}
+            type={type}
             {...props}
           />
           {labelText && (
@@ -90,7 +97,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </label>
           )}
           {rightIcon && (
-            <span className={styles.rightIcon} role="button" tabIndex={0}>
+            <span
+              className={styles.rightIcon}
+              role="button"
+              tabIndex={0}
+              onClick={onRightIconClick}
+            >
               {rightIcon}
             </span>
           )}

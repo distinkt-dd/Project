@@ -93,3 +93,11 @@
   color: var(--accent-orange-color, #fcaf6c);
   border-bottom: 1px solid var(--accent-orange-color, #fcaf6c);
 }
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  position: absolute;
+}

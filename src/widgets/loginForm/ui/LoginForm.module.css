@@ -1,0 +1,64 @@
+.section {
+  padding: 15px 0 113px;
+  position: relative;
+}
+
+.form {
+  max-width: 604px;
+  margin: 35px auto 0;
+  background: var(--gradient-day);
+  border-radius: 20px;
+  padding: 40px 106px;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  margin-top: 18px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.resetLink {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2c2c2e99;
+  text-decoration: none;
+  margin: 8px 24px 0;
+  letter-spacing: 0.4px;
+}
+
+.bottom {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loginButton {
+  max-width: 286px;
+  margin: 0 auto;
+}
+
+.registerText {
+  margin: 0 auto;
+  letter-spacing: 0.4px;
+}
+
+.registerLink {
+  text-decoration: none;
+  color: var(--accent-blue-color);
+}
