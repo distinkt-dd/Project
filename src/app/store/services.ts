@@ -5,13 +5,11 @@ const baseUrl =
   (import.meta.env.VITE_API_URL as string | undefined) ||
   'http://localhost:8000';
 
+const api = new Api(baseUrl);
+const auth = new AuthService(api);
+
+export { api, auth };
 export interface Services {
+  api: Api;
   auth: AuthService;
 }
-
-export const createServices = (): Services => {
-  const api = new Api(baseUrl);
-  return {
-    auth: new AuthService(api),
-  };
-};

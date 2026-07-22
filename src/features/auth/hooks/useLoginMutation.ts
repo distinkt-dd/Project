@@ -4,9 +4,7 @@ import type {
   TokenLoginRequest,
   TokenPairResponse,
 } from '@entities/auth/types';
-import { createServices, store } from '@app';
-
-const { auth } = createServices();
+import { auth, store } from '@app';
 
 type LoginContext = string | undefined;
 
