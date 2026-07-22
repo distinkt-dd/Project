@@ -39,7 +39,7 @@ export const FindTeam: React.FC<FindTeamProps> = ({ data }: FindTeamProps) => {
         </ul>
         <Button
           className={styles.button}
-          onClick={() => navigate('edit-project')}
+          onClick={() => navigate('/edit-project')}
         >
           Создать проект
         </Button>

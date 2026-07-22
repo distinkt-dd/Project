@@ -34,7 +34,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = ({
         <Button
           variant="tertiary"
           className={styles.button}
-          onClick={() => navigate('/project-card/1')}
+          onClick={() => navigate(`/project-card/${id}`)}
         >
           К проекту
         </Button>
