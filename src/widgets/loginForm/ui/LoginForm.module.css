@@ -7,6 +7,7 @@
   max-width: 604px;
   margin: 35px auto 0;
   background: var(--gradient-day);
+  backdrop-filter: var(--bg-blur);
   border-radius: 20px;
   padding: 40px 106px;
 }
@@ -14,6 +15,7 @@
 .container {
   max-width: 1240px;
   margin: 0 auto;
+  position: relative;
 }
 
 .title {
@@ -61,4 +63,22 @@
 .registerLink {
   text-decoration: none;
   color: var(--accent-blue-color);
+}
+
+.TRImg {
+  position: absolute;
+  width: 475px;
+  height: 475px;
+  right: 130px;
+  top: -30px;
+  z-index: -1;
+}
+
+.BLImg {
+  position: absolute;
+  width: 267px;
+  height: 267px;
+  left: 200px;
+  bottom: -120px;
+  z-index: -1;
 }

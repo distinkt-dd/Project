@@ -3,6 +3,8 @@ import styles from './LoginForm.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { EyeM, EyeMSlash } from '@shared/icons';
+import TRImg from '../assets/rainbow_fuzz.png';
+import BLImg from '../assets/violet_fuzz.png';
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -30,8 +32,12 @@ export const LoginForm: React.FC = () => {
         <Button variant="back" onClick={() => navigate(-1)}>
           Назад
         </Button>
+      </div>
+      <div className={styles.container}>
+        <img src={TRImg} aria-hidden="true" className={styles.TRImg} />
+        <img src={BLImg} aria-hidden="true" className={styles.BLImg} />
         <h2 className={styles.title}>Вход в личный кабинет</h2>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputs}>
             <Input
               labelText="Логин"
@@ -49,12 +55,16 @@ export const LoginForm: React.FC = () => {
             />
           </div>
           {/* TODO: Сделать страницу сброса пароля */}
-          <Link to={'/reset'} className={styles.resetLink}>
+          <Link to={'*'} className={styles.resetLink}>
             Забыли пароль?
           </Link>
 
           <div className={styles.bottom}>
-            <Button className={styles.loginButton} onClick={handleSubmit}>
+            <Button
+              className={styles.loginButton}
+              onClick={handleSubmit}
+              type="submit"
+            >
               Войти
             </Button>
             {/* TODO: Сделать страницу регистрации */}

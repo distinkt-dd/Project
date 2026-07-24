@@ -102,6 +102,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               role="button"
               tabIndex={0}
               onClick={onRightIconClick}
+              onKeyDown={(e) => {
+                if (!onRightIconClick) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onRightIconClick();
+                }
+              }}
             >
               {rightIcon}
             </span>
