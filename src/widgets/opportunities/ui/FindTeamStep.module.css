@@ -1,0 +1,27 @@
+.card {
+  padding: 30px 20px 40px;
+  background-color: var(--neutral-default-color);
+  border-radius: 20px;
+  max-width: 392px;
+}
+
+.step {
+  font-weight: 700;
+  color: #909bad;
+}
+
+.title {
+  font-size: 32px;
+  font-family: var(--font-family-base), sans-serif;
+  padding-top: 20px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: pre-line;
+  color: var(--accent-purple-color);
+}
+
+.text {
+  padding-top: 12px;
+  letter-spacing: -0.4px;
+  white-space: pre-line;
+}

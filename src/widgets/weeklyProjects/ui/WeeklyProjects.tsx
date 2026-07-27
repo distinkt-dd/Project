@@ -4,6 +4,7 @@ import { Button } from '@shared/ui';
 import mock_img1 from '../assets/girl.png';
 import mock_img2 from '../assets/fuzz.png';
 import mock_img3 from '../assets/blob.png';
+import { useNavigate } from 'react-router-dom';
 
 const mock_projects = [
   {
@@ -38,12 +39,16 @@ const mock_projects = [
 ];
 
 export const WeeklyProjects: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>проекты недели</h2>
         <ProjectsList data={mock_projects} />
-        <Button className={styles.button}>Смотреть все проекты</Button>
+        <Button className={styles.button} onClick={() => navigate('/projects')}>
+          Смотреть все проекты
+        </Button>
       </div>
     </section>
   );
