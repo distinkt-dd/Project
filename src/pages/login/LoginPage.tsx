@@ -1,3 +1,9 @@
+import { LoginForm } from '@widgets/loginForm';
+
 export const LoginPage: React.FC = () => {
-  return <div>LoginPage</div>;
+  return (
+    <main>
+      <LoginForm />
+    </main>
+  );
 };
