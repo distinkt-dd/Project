@@ -1,5 +1,7 @@
 // import styles from './ParticipantsPage.module.scss';
 
+import styles from './ParticipantsPage.module.css';
+
 export const ParticipantsPage: React.FC = () => {
-  return <div>ParticipantsPage</div>;
+  return <section className={styles.section}>asdasd</section>;
 };
