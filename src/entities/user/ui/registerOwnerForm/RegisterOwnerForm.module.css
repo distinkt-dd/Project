@@ -1,0 +1,33 @@
+.form {
+  background: var(--gradient-day);
+  backdrop-filter: var(--bg-blur);
+  max-width: 604px;
+  padding: 40px 106px;
+  margin: 32px 0 192px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.policyText {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+.link {
+  display: inline;
+  text-decoration: none;
+  color: var(--accent-blue-color);
+}
+
+.button {
+  max-width: 286px;
+  margin: 0 auto;
+}

@@ -5,6 +5,7 @@ export type IconName =
   | 'arrowLeftCircleS'
   | 'arrowNortheast'
   | 'arrowNortheastBold'
+  | 'arrowRight'
   | 'burgerM'
   | 'burgerS'
   | 'check'

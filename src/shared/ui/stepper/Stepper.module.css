@@ -1,0 +1,32 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 4px solid var(--neutral-secondary-color);
+  color: var(--neutral-secondary-color);
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--font-family-accent);
+  opacity: 0.6;
+}
+
+.current {
+  color: var(--neutral-secondary-color);
+  border-color: var(--neutral-secondary-color);
+  opacity: 1;
+}

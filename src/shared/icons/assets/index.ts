@@ -2,6 +2,7 @@ export { default as ArrowLeftCircleM } from './arrow-left-circle-m.svg?react';
 export { default as ArrowLeftCircleS } from './arrow-left-circle-s.svg?react';
 export { default as ArrowNortheastBold } from './arrow-northeast-bold.svg?react';
 export { default as ArrowNortheast } from './arrow-northeast.svg?react';
+export { default as ArrowRight } from './arrow-right.svg?react';
 export { default as BurgerM } from './burger-m.svg?react';
 export { default as BurgerS } from './burger-s.svg?react';
 export { default as Check } from './check.svg?react';
