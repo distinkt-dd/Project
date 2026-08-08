@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '@app';
+import { api } from '../../../app/store/services';
 import { UserService } from '@entities/user';
 import type {
   CurrentUser,
@@ -7,13 +7,68 @@ import type {
   AvatarUpdateRequest,
   AvatarResponse,
   SetPasswordRequest,
+  ListUsersParams,
+  PaginatedUsers,
+  UserCreateRequest,
+  UserPublic,
 } from '@entities/user/types';
 
 const userService = new UserService(api);
 
-const getErrorMessage = (error: unknown): string =>
-  error instanceof Error ? error.message : 'Неизвестная ошибка';
+const getErrorMessage = (error: unknown): string => {
+  if (typeof error === 'string') return error;
+  if (error instanceof Error) return error.message;
+  if (
+    error &&
+    typeof error === 'object' &&
+    'message' in error &&
+    typeof (error as { message?: unknown }).message === 'string'
+  ) {
+    return (error as { message: string }).message;
+  }
+  return 'Неизвестная ошибка';
+};
 
+//Получить список пользователей
+export const fetchUsers = createAsyncThunk<
+  PaginatedUsers,
+  ListUsersParams | void,
+  { rejectValue: string }
+>('user/fetchUsers', async (params, { rejectWithValue }) => {
+  try {
+    return await userService.list(params ?? undefined);
+  } catch (error) {
+    return rejectWithValue(getErrorMessage(error));
+  }
+});
+
+//Зарегать пользователя
+export const registerUser = createAsyncThunk<
+  CurrentUser,
+  UserCreateRequest,
+  { rejectValue: string }
+>('user/registerUser', async (data, { rejectWithValue }) => {
+  try {
+    return await userService.create(data);
+  } catch (error) {
+    return rejectWithValue(getErrorMessage(error));
+  }
+});
+
+//Получить инфу у пользователе с определенным id
+export const fetchUserById = createAsyncThunk<
+  UserPublic,
+  number,
+  { rejectValue: string }
+>('user/fetchUserById', async (userId, { rejectWithValue }) => {
+  try {
+    return await userService.retrieve(userId);
+  } catch (error) {
+    return rejectWithValue(getErrorMessage(error));
+  }
+});
+
+//Получить пользователя
 export const fetchCurrentUser = createAsyncThunk<
   CurrentUser,
   void,
@@ -26,6 +81,7 @@ export const fetchCurrentUser = createAsyncThunk<
   }
 });
 
+//Обновить пользователя
 export const updateCurrentUser = createAsyncThunk<
   CurrentUser,
   UserUpdateRequest,
@@ -38,6 +94,7 @@ export const updateCurrentUser = createAsyncThunk<
   }
 });
 
+//Добавить аватарку
 export const uploadUserAvatar = createAsyncThunk<
   AvatarResponse,
   AvatarUpdateRequest,
@@ -50,6 +107,7 @@ export const uploadUserAvatar = createAsyncThunk<
   }
 });
 
+//Удалить аватарку
 export const deleteUserAvatar = createAsyncThunk<
   void,
   void,
@@ -62,6 +120,7 @@ export const deleteUserAvatar = createAsyncThunk<
   }
 });
 
+//Установить пароль
 export const setUserPassword = createAsyncThunk<
   void,
   SetPasswordRequest,
