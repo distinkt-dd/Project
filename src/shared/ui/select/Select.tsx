@@ -41,6 +41,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={selectId}
           ref={ref}
           className={[styles.select, className].filter(Boolean).join(' ')}
+          aria-label={labelText}
           defaultValue=""
           onMouseDown={handleMouseDown}
           onChange={handleChange}
