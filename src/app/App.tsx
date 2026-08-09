@@ -15,7 +15,7 @@ import { ErrorPage } from '@pages/error';
 import { PolicyPage } from '@pages/policy';
 import { LoginPage } from '@pages/login';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
-// import { ProtectedRoute } from '@app';
+import { ProtectedRoute } from '@app';
 import { RegisterPage } from '@pages/register';
 
 export function App() {
