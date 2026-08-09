@@ -28,9 +28,9 @@ export const RegisterParticipantForm: React.FC<
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log({ role, login, email, password });
+    // TODO: запрос к API регистрации
   };
 
   return (
