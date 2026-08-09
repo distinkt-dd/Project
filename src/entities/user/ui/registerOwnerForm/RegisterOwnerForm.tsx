@@ -36,9 +36,8 @@ export const RegisterOwnerForm: React.FC<RegisterOwnerFormProps> = ({
     setSpecialization(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log({ role, login, email, password, specialization });
     // TODO: запрос к API регистрации
   };
 
