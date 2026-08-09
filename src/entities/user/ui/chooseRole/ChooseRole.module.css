@@ -1,0 +1,31 @@
+.chooseRole {
+  background: var(--gradient-day);
+  backdrop-filter: var(--bg-blur);
+  max-width: 786px;
+  padding: 60px;
+  border-radius: 20px;
+  margin: 40px 0 105px;
+}
+
+.title {
+  font-size: 32px;
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 68px;
+  text-align: center;
+}
+
+.radioGroup {
+  width: 786px;
+}
+
+.radio {
+  padding: 27px 40px;
+}
+
+.button {
+  margin: 68px auto 0;
+  max-width: 286px;
+  display: block;
+}

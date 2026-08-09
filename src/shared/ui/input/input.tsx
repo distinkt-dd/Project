@@ -6,15 +6,12 @@ import React, {
 } from 'react';
 import styles from './input.module.css';
 
-type InputType = 'text' | 'email' | 'password';
-
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelText?: string;
   errorText?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   onRightIconClick?: () => void;
-  type?: InputType;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
