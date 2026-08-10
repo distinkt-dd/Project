@@ -1,22 +1,21 @@
-import './styles/index.css';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import { MainPage } from '@pages/main';
-import { ProjectsPage } from '@pages/projects';
-import { ParticipantsPage } from '@pages/participants';
-import { ProjectCardPage } from '@pages/projectCard';
-import { ProfilePage } from '@pages/profile';
-import { MyProfilePage } from '@pages/myProfile';
-import { EditProfilePage } from '@pages/editProfile';
-import { EditProjectPage } from '@pages/editProject';
-import { RequestsPage } from '@pages/requests';
-import { FavoritesPage } from '@pages/favorites';
-import { ErrorPage } from '@pages/error';
-import { PolicyPage } from '@pages/policy';
-import { LoginPage } from '@pages/login';
-import { MainLayout } from '@shared/ui/layout/main/MainLayout';
 import { ProtectedRoute } from '@app';
+import { EditProfilePage } from '@pages/editProfile/EditProfilePage';
+import { EditProjectPage } from '@pages/editProject/EditProjectPage';
+import { ErrorPage } from '@pages/error/ErrorPage';
+import { FavoritesPage } from '@pages/favorites/FavoritesPage';
+import { LoginPage } from '@pages/login';
 import { RegisterPage } from '@pages/register';
+import { MainPage } from '@pages/main/MainPage';
+import { ParticipantsPage } from '@pages/participants';
+import { PolicyPage } from '@pages/policy/PolicyPage';
+import { ProfilePage } from '@pages/profile';
+import { ProjectCardPage } from '@pages/projectCard/ProjectCardPage';
+import { ProjectsPage } from '@pages/projects/ProjectsPage';
+import { RequestsPage } from '@pages/requests/RequestsPage';
+import { MainLayout } from '@shared/ui/layout/main/MainLayout';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import './styles/index.css';
 
 export function App() {
   return (

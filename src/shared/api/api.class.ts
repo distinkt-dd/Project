@@ -1,32 +1,38 @@
+import type { AuthService } from '@entities/auth';
+
 export class Api {
   readonly baseUrl: string;
-  protected options: RequestInit;
+  private readonly defaultHeaders: Record<string, string>;
+  private authService?: AuthService;
 
-  constructor(baseUrl: string, options: RequestInit = {}, token?: string) {
+  constructor(
+    baseUrl: string,
+    options: { headers?: Record<string, string> } = {}
+  ) {
     this.baseUrl = baseUrl;
-    this.options = {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        ...((options.headers as object) ?? {}),
-      },
+    this.defaultHeaders = {
+      'Content-Type': 'application/json',
+      ...options.headers,
     };
   }
 
-  protected handleResponse<T>(response: Response): Promise<T> {
-    if (response.ok) {
-      if (response.status === 204) {
-        return Promise.resolve() as Promise<T>;
-      }
-      return response.json();
-    } else {
-      return response
-        .json()
-        .then((data) => Promise.reject(data.error ?? response.statusText));
-    }
+  setAuthService(authService: AuthService): void {
+    this.authService = authService;
   }
 
-  protected request<T>(
+  protected async handleResponse<T>(response: Response): Promise<T> {
+    if (response.ok) {
+      if (response.status === 204) return undefined as unknown as T;
+      return await response.json();
+    }
+    const data = await response.json().catch(() => ({}));
+    const message = data.error ?? data.detail ?? response.statusText;
+    throw new Error(
+      `Request failed with status ${response.status}: ${message}`
+    );
+  }
+
+  protected async request<T>(
     uri: string,
     method: string,
     data?: object,
@@ -43,40 +49,47 @@ export class Api {
         ).toString()
       : '';
 
-    const config: RequestInit = {
-      ...this.options,
-      method,
+    const doFetch = async (token: string | null): Promise<Response> => {
+      const headers: Record<string, string> = { ...this.defaultHeaders };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const config: RequestInit = { method, headers };
+      if (data) config.body = JSON.stringify(data);
+      return fetch(this.baseUrl + uri + queryString, config);
     };
 
-    if (data) {
-      config.body = JSON.stringify(data);
+    let token: string | null = null;
+    if (this.authService) {
+      token = this.authService.getAccessToken();
     }
 
-    return fetch(this.baseUrl + uri + queryString, config).then((response) =>
-      this.handleResponse<T>(response)
-    );
+    let response = await doFetch(token);
+
+    if (response.status === 401 && this.authService) {
+      await this.authService.forceRefresh();
+      token = this.authService.getAccessToken();
+      response = await doFetch(token);
+    }
+
+    return this.handleResponse<T>(response);
   }
 
-  get<T>(
-    uri: string,
-    params?: Record<string, string | number | undefined>
-  ): Promise<T> {
+  get<T>(uri: string, params?: Record<string, string | number | undefined>) {
     return this.request<T>(uri, 'GET', undefined, params);
   }
 
-  post<T>(uri: string, data?: object): Promise<T> {
+  post<T>(uri: string, data?: object) {
     return this.request<T>(uri, 'POST', data);
   }
 
-  put<T>(uri: string, data: object): Promise<T> {
+  put<T>(uri: string, data: object) {
     return this.request<T>(uri, 'PUT', data);
   }
 
-  patch<T>(uri: string, data: object): Promise<T> {
+  patch<T>(uri: string, data: object) {
     return this.request<T>(uri, 'PATCH', data);
   }
 
-  delete<T>(uri: string): Promise<T> {
+  delete<T>(uri: string) {
     return this.request<T>(uri, 'DELETE');
   }
 }

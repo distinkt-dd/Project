@@ -1,10 +1,9 @@
-import { useMutation, type UseMutationResult } from '@tanstack/react-query';
-import { setAuthData } from '@features/auth/model/authSlice';
+import { getServices } from '@app';
 import type {
   TokenLoginRequest,
   TokenPairResponse,
 } from '@entities/auth/types';
-import { auth, store } from '@app';
+import { useMutation, type UseMutationResult } from '@tanstack/react-query';
 
 type LoginContext = string | undefined;
 
@@ -14,13 +13,9 @@ export const useLoginMutation = (): UseMutationResult<
   TokenLoginRequest,
   LoginContext
 > => {
+  const { auth } = getServices();
+
   return useMutation({
     mutationFn: (data: TokenLoginRequest) => auth.login(data),
-    onSuccess: (response) => {
-      store.dispatch(setAuthData(response));
-    },
-    onError: (error) => {
-      throw error;
-    },
   });
 };
