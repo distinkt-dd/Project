@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '../../../app/store/services';
+import { api } from '@app/store/services';
 import { UserService } from '@entities/user';
 import type {
   CurrentUser,
