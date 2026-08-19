@@ -1,5 +1,5 @@
 import { Icon } from '@shared/icons';
-import { Button, Search, ThemeSwitcher } from '@shared/ui';
+import { Button, Search, Toggler } from '@shared/ui';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
@@ -222,7 +222,11 @@ export const Header: React.FC = () => {
               )}
             </div>
           )}
-          <ThemeSwitcher checked={isLiteTheme} onChange={setIsLiteTheme} />
+          <Toggler
+            type="theme"
+            checked={isLiteTheme}
+            onChange={setIsLiteTheme}
+          />
         </div>
       </div>
     </div>
