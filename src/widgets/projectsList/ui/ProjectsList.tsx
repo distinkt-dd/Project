@@ -10,6 +10,7 @@ interface Project {
 
 interface ProjectsListProps {
   data: Project[];
+  className?: string;
 }
 
 export const ProjectsList: React.FC<ProjectsListProps> = ({ data }) => {
