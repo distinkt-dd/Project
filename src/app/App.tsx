@@ -14,8 +14,8 @@ import { RegisterPage } from '@pages/register';
 import { RequestsPage } from '@pages/requests/RequestsPage';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
 import { Route, Routes } from 'react-router-dom';
-import { MyProfilePage } from '@pages/myProfile/MyProfilePage';
 import './App.css';
+import { ProtectedRoute } from './providers';
 import './styles/index.css';
 
 export function App() {
@@ -28,11 +28,11 @@ export function App() {
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
+        <Route path="participants" element={<ParticipantsPage />} />
         <Route path="*" element={<ErrorPage />} />
 
         {/* Защищённые маршруты */}
         <Route element={<ProtectedRoute />}>
-          <Route path="participants" element={<ParticipantsPage />} />
           <Route path="project-card/:id" element={<ProjectCardPage />} />
           <Route path="profile/:id" element={<ProfilePage />} />
           <Route path="my-profile" element={<MyProfilePage />} />

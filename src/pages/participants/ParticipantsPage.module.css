@@ -1,0 +1,51 @@
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section {
+  margin-block: 16px 123px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.buttonBack {
+  position: static;
+}
+
+.buttonMore {
+  max-width: 286px;
+  margin: 0 auto;
+}
+
+.decorateImg {
+  position: absolute;
+}
+
+.mdPng {
+  max-width: 453px;
+  rotate: -106deg;
+  bottom: -100%;
+  left: -7%;
+  z-index: -1;
+}
+
+.wbPng {
+  max-width: 305px;
+  left: 25%;
+  top: 100%;
+  transform: translate(-25%, -50%);
+}
+
+.vfPng {
+  max-width: 299px;
+  right: 10%;
+  top: 30%;
+  z-index: -1;
+}
