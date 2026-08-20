@@ -1,1 +1,1 @@
-export { ThemeSwitcher } from './theme';
+export { Toggler } from './Toggler';

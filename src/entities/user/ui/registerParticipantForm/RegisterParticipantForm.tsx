@@ -10,7 +10,8 @@ interface RegisterParticipantFormProps {
 
 export const RegisterParticipantForm: React.FC<
   RegisterParticipantFormProps
-> = ({ role }) => {
+> = ({ role: _role }) => {
+  void _role;
   const [email, setEmail] = useState<string>('');
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');

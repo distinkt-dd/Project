@@ -7,6 +7,20 @@
   letter-spacing: 2%;
 }
 
+.withIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.selectVariant {
+  padding: 4px 10px;
+}
+
 /* Цвета фонов */
 .blue {
   background-color: var(--lable-blue-color);
