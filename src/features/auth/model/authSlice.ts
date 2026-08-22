@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
 import type { AuthUser, TokenPairResponse } from '@entities/auth/types';
+import { createSlice } from '@reduxjs/toolkit';
 import { REHYDRATE } from 'redux-persist';
 
 interface AuthState {

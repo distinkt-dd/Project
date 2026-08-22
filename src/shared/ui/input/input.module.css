@@ -122,4 +122,6 @@
   color: var(--accent-red-color, rgba(251, 76, 71, 1));
   font-size: 16px;
   line-height: 150%;
+  margin-top: 8px;
+  letter-spacing: 0.4px;
 }

@@ -1,0 +1,86 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  background-color: var(--neutral-default-color, #ffffff);
+  background-image: url('./assets/404-furry.jpg');
+  background-repeat: no-repeat;
+  background-position: center 59.3%;
+  background-size: 105% auto;
+}
+
+.content {
+  width: min(1240px, calc(100% - 80px));
+  min-height: 100%;
+  margin-inline: auto;
+  padding-block: 58px 132px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: min(1093px, 100%);
+  color: var(--neutral-secondary-color, #2c2c2e);
+  text-transform: uppercase;
+}
+
+.titlePrimary,
+.titleSecondary {
+  display: block;
+}
+
+.titlePrimary {
+  font-size: 52px;
+  line-height: 56px;
+}
+
+.titleSecondary {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.details {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 332px minmax(286px, 1fr) 284px;
+  align-items: end;
+}
+
+.description,
+.hint {
+  font-size: 20px;
+  line-height: 132%;
+  color: var(--neutral-secondary-color, #2c2c2e);
+}
+
+.hint {
+  text-align: right;
+}
+
+.projectsButton {
+  width: 286px;
+  justify-self: center;
+}
+
+@media (max-width: 1279px) {
+  .content {
+    width: calc(100% - 80px);
+  }
+
+  .titlePrimary {
+    font-size: clamp(44px, 4.05vw, 52px);
+  }
+
+  .titleSecondary {
+    font-size: clamp(27px, 2.5vw, 32px);
+  }
+
+  .details {
+    grid-template-columns: minmax(284px, 332px) minmax(286px, 1fr) 284px;
+  }
+}
