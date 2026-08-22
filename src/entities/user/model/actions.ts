@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '@app/store/services';
+import { getServices } from '@app';
 import { UserService } from '@entities/user';
 import type {
   CurrentUser,
@@ -13,7 +13,7 @@ import type {
   UserPublic,
 } from '@entities/user/types';
 
-const userService = new UserService(api);
+const getUserService = () => new UserService(getServices().api);
 
 const getErrorMessage = (error: unknown): string => {
   if (typeof error === 'string') return error;
@@ -36,7 +36,7 @@ export const fetchUsers = createAsyncThunk<
   { rejectValue: string }
 >('user/fetchUsers', async (params, { rejectWithValue }) => {
   try {
-    return await userService.list(params ?? undefined);
+    return await getUserService().list(params ?? undefined);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -49,7 +49,7 @@ export const registerUser = createAsyncThunk<
   { rejectValue: string }
 >('user/registerUser', async (data, { rejectWithValue }) => {
   try {
-    return await userService.create(data);
+    return await getUserService().create(data);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -62,7 +62,7 @@ export const fetchUserById = createAsyncThunk<
   { rejectValue: string }
 >('user/fetchUserById', async (userId, { rejectWithValue }) => {
   try {
-    return await userService.retrieve(userId);
+    return await getUserService().retrieve(userId);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -75,7 +75,7 @@ export const fetchCurrentUser = createAsyncThunk<
   { rejectValue: string }
 >('user/fetchCurrentUser', async (_, { rejectWithValue }) => {
   try {
-    return await userService.getCurrent();
+    return await getUserService().getCurrent();
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -88,7 +88,7 @@ export const updateCurrentUser = createAsyncThunk<
   { rejectValue: string }
 >('user/updateCurrentUser', async (data, { rejectWithValue }) => {
   try {
-    return await userService.updateCurrent(data);
+    return await getUserService().updateCurrent(data);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -101,7 +101,7 @@ export const uploadUserAvatar = createAsyncThunk<
   { rejectValue: string }
 >('user/uploadAvatar', async (data, { rejectWithValue }) => {
   try {
-    return await userService.uploadAvatar(data);
+    return await getUserService().uploadAvatar(data);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -114,7 +114,7 @@ export const deleteUserAvatar = createAsyncThunk<
   { rejectValue: string }
 >('user/deleteAvatar', async (_, { rejectWithValue }) => {
   try {
-    await userService.deleteAvatar();
+    await getUserService().deleteAvatar();
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
@@ -127,7 +127,7 @@ export const setUserPassword = createAsyncThunk<
   { rejectValue: string }
 >('user/setPassword', async (data, { rejectWithValue }) => {
   try {
-    await userService.setPassword(data);
+    await getUserService().setPassword(data);
   } catch (error) {
     return rejectWithValue(getErrorMessage(error));
   }
