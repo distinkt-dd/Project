@@ -6,6 +6,7 @@ import { FavoritesPage } from '@pages/favorites/FavoritesPage';
 import { LoginPage } from '@pages/login';
 import { RegisterPage } from '@pages/register';
 import { MainPage } from '@pages/main/MainPage';
+import { MyProfilePage } from '@pages/myProfile';
 import { ParticipantsPage } from '@pages/participants';
 import { PolicyPage } from '@pages/policy/PolicyPage';
 import { ProfilePage } from '@pages/profile';
@@ -14,7 +15,6 @@ import { ProjectsPage } from '@pages/projects/ProjectsPage';
 import { RequestsPage } from '@pages/requests/RequestsPage';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
 import { Route, Routes } from 'react-router-dom';
-import { MyProfilePage } from '@pages/myProfile/MyProfilePage';
 import './App.css';
 import './styles/index.css';
 
