@@ -1,3 +1,4 @@
+import { ProtectedRoute } from '@app';
 import { EditProfilePage } from '@pages/editProfile/EditProfilePage';
 import { EditProjectPage } from '@pages/editProject/EditProjectPage';
 import { ErrorPage } from '@pages/error/ErrorPage';
@@ -14,7 +15,6 @@ import { ProjectsPage } from '@pages/projects/ProjectsPage';
 import { RequestsPage } from '@pages/requests/RequestsPage';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
 import { Route, Routes } from 'react-router-dom';
-import { MyProfilePage } from '@pages/myProfile/MyProfilePage';
 import './App.css';
 import './styles/index.css';
 
