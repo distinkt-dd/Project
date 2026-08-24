@@ -1,0 +1,25 @@
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.button {
+  max-width: 286px;
+  align-self: center;
+}
+
+.title {
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.main {
+  margin: 72px 0 56px;
+}

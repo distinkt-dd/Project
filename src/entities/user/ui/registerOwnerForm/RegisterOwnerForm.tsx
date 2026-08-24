@@ -9,7 +9,10 @@ interface RegisterOwnerFormProps {
   role: string;
 }
 
-export const RegisterOwnerForm: React.FC<RegisterOwnerFormProps> = () => {
+export const RegisterOwnerForm: React.FC<RegisterOwnerFormProps> = ({
+  role: _role,
+}) => {
+  void _role;
   const [email, setEmail] = useState<string>('');
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -26,12 +29,6 @@ export const RegisterOwnerForm: React.FC<RegisterOwnerFormProps> = () => {
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-  };
-
-  const handleSpecializationChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setSpecialization(e.target.value);
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -75,7 +72,8 @@ export const RegisterOwnerForm: React.FC<RegisterOwnerFormProps> = () => {
         <Select
           labelText="Специализация"
           value={specialization}
-          onChange={handleSpecializationChange}
+          onChange={setSpecialization}
+          fullWidth
           options={[
             { value: 'design', label: 'Дизайн' },
             { value: 'sound', label: 'Звук и музыка' },

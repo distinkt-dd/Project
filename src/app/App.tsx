@@ -14,6 +14,7 @@ import { ProjectsPage } from '@pages/projects/ProjectsPage';
 import { RequestsPage } from '@pages/requests/RequestsPage';
 import { MainLayout } from '@shared/ui/layout/main/MainLayout';
 import { Route, Routes } from 'react-router-dom';
+import { MyProfilePage } from '@pages/myProfile/MyProfilePage';
 import './App.css';
 import './styles/index.css';
 
@@ -24,22 +25,22 @@ export function App() {
         {/* Публичные маршруты */}
         <Route index element={<MainPage />} />
         <Route path="policy" element={<PolicyPage />} />
+        <Route path="projects" element={<ProjectsPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="*" element={<ErrorPage />} />
 
         {/* Защищённые маршруты */}
-        {/* <Route element={<ProtectedRoute />}> */}
-        <Route path="projects" element={<ProjectsPage />} />
-        <Route path="participants" element={<ParticipantsPage />} />
-        <Route path="project-card/:id" element={<ProjectCardPage />} />
-        <Route path="profile/:id" element={<ProfilePage />} />
-        <Route path="my-profile" element={<MyProfilePage />} />
-        <Route path="edit-profile" element={<EditProfilePage />} />
-        <Route path="edit-project" element={<EditProjectPage />} />
-        <Route path="requests" element={<RequestsPage />} />
-        <Route path="favorites" element={<FavoritesPage />} />
-        {/* </Route> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="participants" element={<ParticipantsPage />} />
+          <Route path="project-card/:id" element={<ProjectCardPage />} />
+          <Route path="profile/:id" element={<ProfilePage />} />
+          <Route path="my-profile" element={<MyProfilePage />} />
+          <Route path="edit-profile" element={<EditProfilePage />} />
+          <Route path="edit-project" element={<EditProjectPage />} />
+          <Route path="requests" element={<RequestsPage />} />
+          <Route path="favorites" element={<FavoritesPage />} />
+        </Route>
       </Route>
     </Routes>
   );
