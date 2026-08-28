@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import styles from './ProjectsPage.module.css';
-import { Button } from '@shared/ui/button';
 import { Filter } from '@features/filter';
+import { Button } from '@shared/ui/button';
 import { ProjectsList } from '@widgets/projectsList';
-import mock_img1 from './assets/girl.png';
-import mock_img2 from './assets/fuzz.png';
+import { useState } from 'react';
 import mock_img3 from './assets/blob.png';
-import mock_img4 from './assets/orb.png';
 import mock_img5 from './assets/cover.jpg';
+import mock_img2 from './assets/fuzz.png';
 import mock_img6 from './assets/girl(1).png';
+import mock_img1 from './assets/girl.png';
 import mock_img7 from './assets/hills.png';
+import mock_img4 from './assets/orb.png';
+import styles from './ProjectsPage.module.css';
 
 const PAGE_SIZE = 3;
 

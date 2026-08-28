@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
   //TODO: актуализировать роутинг
   const navItems = [
     { text: 'Проекты', path: '#' },
-    { text: 'Участники', path: '#' },
+    { text: 'Участники', path: '/participants' },
     { text: 'Вопросы', path: '#' },
   ];
 
@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
     ];
   } else {
     personalNavItems = [
-      { text: 'Участники', path: '#' },
+      { text: 'Участники', path: '/participants' },
       { text: 'Профиль', path: '#' },
       { text: 'Настройки', path: '#' },
     ];
