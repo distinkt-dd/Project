@@ -33,7 +33,7 @@ export function App() {
         {/* Защищённые маршруты */}
         <Route element={<ProtectedRoute />}>
           <Route path="participants" element={<ParticipantsPage />} />
-          <Route path="project-card/:id" element={<ProjectCardPage />} />
+          <Route path="projects/:id" element={<ProjectCardPage />} />
           <Route path="profile/:id" element={<ProfilePage />} />
           <Route path="my-profile" element={<MyProfilePage />} />
           <Route path="edit-profile" element={<EditProfilePage />} />
