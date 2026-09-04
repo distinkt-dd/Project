@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 .kilo
+
+teamlab.code-workspace

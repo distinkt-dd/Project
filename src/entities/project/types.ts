@@ -125,8 +125,8 @@ export interface ProjectUpdateRequest {
 
 export interface ProjectApplicationCard {
   id: number;
-  user_id: number;
   project_role_id: number;
+  project_role_name: string | null;
   status: string;
   source: string;
   created_at: string;
@@ -137,7 +137,10 @@ export interface ProjectApplicationCard {
 export interface CurrentUserApplicationCard {
   id: number;
   user_id: number;
+  project_id: number;
+  project_title: string;
   project_role_id: number;
+  project_role_name: string | null;
   status: string;
   source: string;
   created_at: string;
@@ -147,12 +150,13 @@ export interface CurrentUserApplicationCard {
 export interface ProjectInvitationCard {
   id: number;
   user_id: number;
+  username: string;
   project_role_id: number;
+  project_role_name: string | null;
   status: string;
   source: string;
   created_at: string;
   updated_at: string;
-  user: UserPublic;
 }
 
 export interface ProjectInvitationCreateRequest {
