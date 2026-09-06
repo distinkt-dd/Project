@@ -9,14 +9,13 @@ import type { Skill as CatalogSkill } from '@entities/skill/types';
 import { SpecializationService } from '@entities/specialization';
 import type { Specialization } from '@entities/specialization/types';
 import { UserService } from '@entities/user/UserService';
-import type {
-  EmploymentType,
-  UserLevel,
-  WorkFormat,
-} from '@entities/user/types';
+import type { EmploymentType, UserLevel } from '@entities/user/types';
 import { Filter, type FilterOption, type FilterSelect } from '@features/filter';
 import { getServices } from '@app/store/services';
 import { Button, Tag } from '@shared/ui';
+import blueFuzz from '@entities/specialization/assets/blue_fuzz.png';
+import pinkFuzz from '@entities/specialization/assets/pink_fuzz.png';
+import violetFuzz from '@widgets/loginForm/assets/violet_fuzz.png';
 import styles from './RequestsPage.module.css';
 
 const VISIBLE_SKILLS_COUNT = 4;
@@ -29,47 +28,22 @@ const PERIOD_OPTIONS: FilterOption[] = [
   { value: 'all', label: 'За все время' },
 ];
 
-const LEVEL_OPTIONS: FilterOption[] = [
-  { value: 'junior', label: 'Junior' },
-  { value: 'middle', label: 'Middle' },
-  { value: 'senior', label: 'Senior' },
-];
-
-const WORK_FORMAT_OPTIONS: FilterOption[] = [
-  { value: 'remote', label: 'Удаленно' },
-  { value: 'hybrid', label: 'Гибрид' },
-];
-
-const EMPLOYMENT_OPTIONS: FilterOption[] = [
-  { value: 'full_time', label: 'Полная занятость' },
-  { value: 'part_time', label: 'Частичная занятость' },
-  { value: 'combined', label: 'Можно совмещать' },
-];
-
 const levelLabels: Record<UserLevel, string> = {
-  junior: 'Junior',
-  middle: 'Middle',
-  senior: 'Senior',
-};
-
-const workFormatLabels: Record<WorkFormat, string> = {
-  remote: 'Удаленно',
-  hybrid: 'Гибрид',
+  junior: 'Базовый',
+  middle: 'Средний',
+  senior: 'Продвинутый',
 };
 
 const employmentLabels: Record<EmploymentType, string> = {
-  full_time: 'Полная занятость',
+  full_time: 'Не совмещаю',
   part_time: 'Частичная занятость',
-  combined: 'Можно совмещать',
+  combined: 'Совмещаю',
 };
 
 interface RequestsFilters {
   fieldIds: string[];
-  specializationIds: string[];
-  skillIds: string[];
-  level: string;
-  workFormat: string;
-  employmentType: string;
+  tagIds: string[];
+  city: string;
   period: string;
 }
 
@@ -80,22 +54,30 @@ interface ApplicationItem extends ProjectApplicationCard {
 
 const emptyFilters: RequestsFilters = {
   fieldIds: [],
-  specializationIds: [],
-  skillIds: [],
-  level: '',
-  workFormat: '',
-  employmentType: '',
+  tagIds: [],
+  city: '',
   period: 'month',
 };
 
-const formatDateTime = (value: string) =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(new Date(value));
+const padDatePart = (value: number) => String(value).padStart(2, '0');
+
+const formatDate = (value: string) => {
+  const date = new Date(value);
+
+  return [
+    padDatePart(date.getDate()),
+    padDatePart(date.getMonth() + 1),
+    String(date.getFullYear()).slice(-2),
+  ].join('.');
+};
+
+const formatTime = (value: string) => {
+  const date = new Date(value);
+
+  return [padDatePart(date.getHours()), padDatePart(date.getMinutes())].join(
+    ':'
+  );
+};
 
 const getPeriodStart = (period: string): Date | null => {
   if (!period || period === 'all') return null;
@@ -256,6 +238,21 @@ export const RequestsPage: React.FC = () => {
     );
   }, [specializations]);
 
+  const cityOptions = useMemo(() => {
+    const uniqueCities = Array.from(
+      new Set(
+        applications
+          .map((application) => application.user.city)
+          .filter((city): city is string => Boolean(city))
+      )
+    ).sort((left, right) => left.localeCompare(right, 'ru'));
+
+    return uniqueCities.map((city) => ({
+      value: city,
+      label: city,
+    }));
+  }, [applications]);
+
   const filteredApplications = useMemo(() => {
     const periodStart = getPeriodStart(appliedFilters.period);
 
@@ -276,39 +273,15 @@ export const RequestsPage: React.FC = () => {
       }
 
       if (
-        appliedFilters.specializationIds.length > 0 &&
-        (!user.specialization_id ||
-          !appliedFilters.specializationIds.includes(
-            String(user.specialization_id)
-          ))
-      ) {
-        return false;
-      }
-
-      if (
-        appliedFilters.skillIds.length > 0 &&
+        appliedFilters.tagIds.length > 0 &&
         !user.skills.some((skill) =>
-          appliedFilters.skillIds.includes(String(skill.skill_id))
+          appliedFilters.tagIds.includes(String(skill.skill_id))
         )
       ) {
         return false;
       }
 
-      if (appliedFilters.level && user.level !== appliedFilters.level) {
-        return false;
-      }
-
-      if (
-        appliedFilters.workFormat &&
-        user.work_format !== appliedFilters.workFormat
-      ) {
-        return false;
-      }
-
-      if (
-        appliedFilters.employmentType &&
-        user.employment_type !== appliedFilters.employmentType
-      ) {
+      if (appliedFilters.city && user.city !== appliedFilters.city) {
         return false;
       }
 
@@ -335,49 +308,15 @@ export const RequestsPage: React.FC = () => {
       disabled: fields.length === 0,
     },
     {
-      key: 'specializations',
-      multiple: true,
-      options: makeOptions(specializations),
-      value: draftFilters.specializationIds,
-      onChange: (specializationIds) =>
-        setDraftFilters((filters) => ({ ...filters, specializationIds })),
-      labelText: 'Специализация',
-      disabled: specializations.length === 0,
-    },
-    {
-      key: 'skills',
+      key: 'tags',
       multiple: true,
       variant: 'tags',
       options: makeOptions(skills),
-      value: draftFilters.skillIds,
-      onChange: (skillIds) =>
-        setDraftFilters((filters) => ({ ...filters, skillIds })),
-      labelText: 'Навыки',
+      value: draftFilters.tagIds,
+      onChange: (tagIds) =>
+        setDraftFilters((filters) => ({ ...filters, tagIds })),
+      labelText: 'Теги',
       disabled: skills.length === 0,
-    },
-    {
-      key: 'level',
-      options: LEVEL_OPTIONS,
-      value: draftFilters.level,
-      onChange: (level) =>
-        setDraftFilters((filters) => ({ ...filters, level })),
-      labelText: 'Уровень',
-    },
-    {
-      key: 'workFormat',
-      options: WORK_FORMAT_OPTIONS,
-      value: draftFilters.workFormat,
-      onChange: (workFormat) =>
-        setDraftFilters((filters) => ({ ...filters, workFormat })),
-      labelText: 'Формат работы',
-    },
-    {
-      key: 'employmentType',
-      options: EMPLOYMENT_OPTIONS,
-      value: draftFilters.employmentType,
-      onChange: (employmentType) =>
-        setDraftFilters((filters) => ({ ...filters, employmentType })),
-      labelText: 'Занятость',
     },
     {
       key: 'period',
@@ -386,6 +325,14 @@ export const RequestsPage: React.FC = () => {
       onChange: (period) =>
         setDraftFilters((filters) => ({ ...filters, period })),
       labelText: 'За месяц',
+    },
+    {
+      key: 'city',
+      options: cityOptions,
+      value: draftFilters.city,
+      onChange: (city) => setDraftFilters((filters) => ({ ...filters, city })),
+      labelText: 'Город',
+      disabled: cityOptions.length === 0,
     },
   ];
 
@@ -407,16 +354,14 @@ export const RequestsPage: React.FC = () => {
           >
             На главную
           </Button>
-          <div className={styles.header}>
-            <h2 className={styles.title}>Заявки</h2>
-            <span className={styles.count}>{filteredApplications.length}</span>
-          </div>
+          <h2 className={styles.title}>Заявки</h2>
 
           <Filter
             className={styles.filter}
             selects={filterSelects}
             onApply={() => setAppliedFilters(draftFilters)}
             onReset={handleReset}
+            showReset={false}
           />
 
           {isLoading && <p className={styles.state}>Загружаем заявки...</p>}
@@ -437,7 +382,7 @@ export const RequestsPage: React.FC = () => {
 
           {!isLoading && !error && filteredApplications.length > 0 && (
             <ul className={styles.list}>
-              {filteredApplications.map((application) => {
+              {filteredApplications.map((application, index) => {
                 const user = application.user;
                 const avatar = getImageUrl(user.avatar, baseUrl);
                 const visibleSkills = user.skills.slice(
@@ -446,104 +391,108 @@ export const RequestsPage: React.FC = () => {
                 );
                 const hiddenSkillsCount =
                   user.skills.length - visibleSkills.length;
+                const shouldShowPurpleDecor = index === 0;
+                const shouldShowBlueDecor =
+                  filteredApplications.length >= 3 && index === 2;
+                const shouldShowPinkDecor =
+                  filteredApplications.length >= 4 &&
+                  index === filteredApplications.length - 1;
 
                 return (
                   <li className={styles.card} key={application.id}>
                     <div className={styles.date}>
-                      <span>Дата заявки</span>
                       <time dateTime={application.created_at}>
-                        {formatDateTime(application.created_at)}
+                        {formatDate(application.created_at)}
+                      </time>
+                      <time dateTime={application.created_at}>
+                        {formatTime(application.created_at)}
                       </time>
                     </div>
 
-                    <div className={styles.person}>
-                      {avatar ? (
+                    <div className={styles.cardBody}>
+                      {shouldShowPurpleDecor && (
                         <img
-                          className={styles.avatar}
-                          src={avatar}
-                          alt={user.display_name}
+                          className={`${styles.cardDecor} ${styles.cardDecorPurple}`}
+                          src={violetFuzz}
+                          alt=""
+                          aria-hidden="true"
                         />
-                      ) : (
-                        <span className={styles.avatarFallback}>
-                          {getInitials(user.display_name, user.username)}
-                        </span>
                       )}
+                      {shouldShowBlueDecor && (
+                        <img
+                          className={`${styles.cardDecor} ${styles.cardDecorBlue}`}
+                          src={blueFuzz}
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      )}
+                      {shouldShowPinkDecor && (
+                        <img
+                          className={`${styles.cardDecor} ${styles.cardDecorPink}`}
+                          src={pinkFuzz}
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      )}
+                      <div className={styles.person}>
+                        {avatar ? (
+                          <img
+                            className={styles.avatar}
+                            src={avatar}
+                            alt={user.display_name}
+                          />
+                        ) : (
+                          <span className={styles.avatarFallback}>
+                            {getInitials(user.display_name, user.username)}
+                          </span>
+                        )}
 
-                      <div className={styles.info}>
-                        <div>
-                          <h3 className={styles.name}>{user.display_name}</h3>
-                          <p className={styles.username}>@{user.username}</p>
-                        </div>
+                        <div className={styles.info}>
+                          <div>
+                            <h3 className={styles.name}>
+                              {user.specialization_name ?? 'Не указана'}
+                            </h3>
+                            <p className={styles.username}>{user.username}</p>
+                          </div>
 
-                        <dl className={styles.meta}>
-                          <div>
-                            <dt>Проект</dt>
-                            <dd>{application.project_title}</dd>
-                          </div>
-                          <div>
-                            <dt>Роль</dt>
-                            <dd>
-                              {application.project_role_name ??
-                                user.specialization_name ??
-                                'Не указана'}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt>Город</dt>
-                            <dd>{user.city ?? 'Не указан'}</dd>
-                          </div>
-                          <div>
-                            <dt>Уровень</dt>
-                            <dd>
+                          <ul className={styles.meta}>
+                            <li>
                               {user.level
                                 ? levelLabels[user.level]
                                 : 'Не указан'}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt>Формат</dt>
-                            <dd>
-                              {user.work_format
-                                ? workFormatLabels[user.work_format]
-                                : 'Не указан'}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt>Занятость</dt>
-                            <dd>
+                            </li>
+                            <li>{user.city ?? 'Не указан'}</li>
+                            <li>
+                              {user.workload_hours_per_week
+                                ? `${user.workload_hours_per_week} ч/нед`
+                                : 'Не указано'}
+                            </li>
+                            <li>
                               {user.employment_type
                                 ? employmentLabels[user.employment_type]
-                                : 'Не указана'}
-                            </dd>
-                          </div>
-                        </dl>
+                                : 'Не указано'}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
 
-                        {user.workload_hours_per_week && (
-                          <p className={styles.workload}>
-                            {user.workload_hours_per_week} ч/неделю
-                          </p>
-                        )}
-
-                        {user.skills.length > 0 && (
-                          <div className={styles.tags}>
-                            {visibleSkills.map((skill) => (
-                              <Tag key={skill.id}>{skill.name}</Tag>
-                            ))}
-                            {hiddenSkillsCount > 0 && (
-                              <Tag>ещё {hiddenSkillsCount}</Tag>
-                            )}
-                          </div>
+                      <div className={styles.tags}>
+                        {visibleSkills.map((skill) => (
+                          <Tag key={skill.id}>{skill.name}</Tag>
+                        ))}
+                        {hiddenSkillsCount > 0 && (
+                          <Tag>ещё {hiddenSkillsCount}</Tag>
                         )}
                       </div>
-                    </div>
 
-                    <Button
-                      variant="tertiary"
-                      className={styles.profileButton}
-                      onClick={() => navigate(`/profile/${user.id}`)}
-                    >
-                      В профиль
-                    </Button>
+                      <Button
+                        variant="tertiary"
+                        className={styles.profileButton}
+                        onClick={() => navigate(`/profile/${user.id}`)}
+                      >
+                        В профиль
+                      </Button>
+                    </div>
                   </li>
                 );
               })}

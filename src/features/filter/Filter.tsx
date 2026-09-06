@@ -78,6 +78,7 @@ interface FilterProps {
   resetText?: string;
   onApply?: () => void;
   onReset?: () => void;
+  showReset?: boolean;
 }
 
 export const Filter: React.FC<FilterProps> = ({
@@ -87,6 +88,7 @@ export const Filter: React.FC<FilterProps> = ({
   resetText = 'Сбросить фильтры',
   onApply,
   onReset,
+  showReset = true,
 }) => {
   const [directions, setDirections] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
@@ -178,9 +180,11 @@ export const Filter: React.FC<FilterProps> = ({
         <Button variant="secondary" onClick={onApply}>
           {applyText}
         </Button>
-        <button className={styles.resetButton} onClick={handleReset}>
-          {resetText}
-        </button>
+        {showReset && (
+          <button className={styles.resetButton} onClick={handleReset}>
+            {resetText}
+          </button>
+        )}
       </div>
     </div>
   );
