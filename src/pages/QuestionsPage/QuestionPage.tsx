@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@shared/ui/button';
-import { Filter } from '@features/filter';
-import styles from './ParticipantsPage.module.css';
+import styles from './QuestionPage.module.css';
 
-export const ParticipantsPage: React.FC = () => {
+export const QuestionsPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -17,8 +16,7 @@ export const ParticipantsPage: React.FC = () => {
           На главную
         </Button>
         <section className={styles.section}>
-          <h2 className={styles.title}>Все участники </h2>
-          <Filter className={styles.filter} />
+          <h2 className={styles.title}>Вопросы</h2>
         </section>
       </div>
     </div>

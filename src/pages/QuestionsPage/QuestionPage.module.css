@@ -4,16 +4,6 @@
   position: relative;
 }
 
-.button {
-  max-width: 286px;
-  align-self: center;
-}
-
-.title {
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
 .section {
   display: flex;
   flex-direction: column;
