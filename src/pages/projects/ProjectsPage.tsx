@@ -10,6 +10,7 @@ import mock_img4 from './assets/orb.png';
 import mock_img5 from './assets/cover.jpg';
 import mock_img6 from './assets/girl(1).png';
 import mock_img7 from './assets/hills.png';
+import { useNavigate } from 'react-router-dom';
 
 const PAGE_SIZE = 3;
 
@@ -75,7 +76,7 @@ const mock_projects = [
 
 export const ProjectsPage: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-
+  const navigate = useNavigate();
   const visibleProjects = mock_projects.slice(0, visibleCount);
   const hasMore = visibleCount < mock_projects.length;
 
@@ -86,8 +87,15 @@ export const ProjectsPage: React.FC = () => {
   };
 
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.main}>
+        <Button
+          variant="back"
+          className={styles.backButton}
+          onClick={() => navigate('/')}
+        >
+          На главную
+        </Button>
         <section className={styles.section}>
           <h2 className={styles.title}>Все проекты </h2>
           <Filter className={styles.filter} />
@@ -102,6 +110,6 @@ export const ProjectsPage: React.FC = () => {
           )}
         </section>
       </div>
-    </main>
+    </div>
   );
 };

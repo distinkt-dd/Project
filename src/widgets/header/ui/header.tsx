@@ -27,9 +27,9 @@ export const Header: React.FC = () => {
 
   //TODO: актуализировать роутинг
   const navItems = [
-    { text: 'Проекты', path: '#' },
-    { text: 'Участники', path: '#' },
-    { text: 'Вопросы', path: '#' },
+    { text: 'Проекты', path: '/projects' },
+    { text: 'Участники', path: '/participants' },
+    { text: 'Вопросы', path: '/questions' },
   ];
 
   //TODO: актуализировать роутинг, проверить соответствие типам
