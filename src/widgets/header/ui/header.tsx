@@ -1,7 +1,9 @@
+import { useAppSelector } from '@app';
+import { selectIsAuthenticated } from '@features/auth';
 import { Icon } from '@shared/icons';
 import { Button, Search, Toggler } from '@shared/ui';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 import logoDark from '/logo-dark.svg';
 import logoLight from '/logo-light.svg';
@@ -22,6 +24,8 @@ export const Header: React.FC = () => {
   const userType = 'participant';
 
   const location = useLocation();
+  const navigate = useNavigate();
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   const shouldHidePersonalWrapper = hiddenOnRoutes.includes(location.pathname);
 
@@ -90,6 +94,9 @@ export const Header: React.FC = () => {
   }, []);
 
   const handlePersonalMouseEnter = () => {
+    if (!isAuthenticated) {
+      return;
+    }
     if (dropdownTimeout.current) {
       clearTimeout(dropdownTimeout.current);
     }
@@ -100,6 +107,13 @@ export const Header: React.FC = () => {
     dropdownTimeout.current = setTimeout(() => {
       setIsDropdownOpen(false);
     }, 300);
+  };
+
+  // Авторизованный пользователь переходит в личный кабинет (/my-profile),
+  // гость — на страницу входа
+  const handlePersonalButtonClick = () => {
+    closeDropdown();
+    navigate(isAuthenticated ? '/my-profile' : '/login');
   };
 
   // TODO: доработать логику клика по иконкам в дропдауне личного кабинета
@@ -156,16 +170,21 @@ export const Header: React.FC = () => {
               onFocus={handlePersonalMouseEnter}
               onBlur={handlePersonalMouseLeave}
               aria-haspopup="true"
-              aria-expanded={isDropdownOpen}
+              aria-expanded={isDropdownOpen && isAuthenticated}
             >
               <Button
                 variant="tertiary"
                 className={styles.personalButton}
-                aria-label="войти в личный кабинет"
+                onClick={handlePersonalButtonClick}
+                aria-label={
+                  isAuthenticated
+                    ? 'перейти в личный кабинет'
+                    : 'войти в личный кабинет'
+                }
               >
                 Личный кабинет
               </Button>
-              {isDropdownOpen && (
+              {isDropdownOpen && isAuthenticated && (
                 <div className={styles.dropdown}>
                   <div className={styles.actionIcons}>
                     <button

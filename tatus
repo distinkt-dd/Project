@@ -1,0 +1,160 @@
+[33m7069d0d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeat090926[m[33m)[m feat: добавил переходы в хедере, добавил кнопки возврата, добавил страницы
+[33m39b5980[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m Merge pull request #49 from distinkt-dd/feature/applications-page
+[33m6d867d4[m feat(requests): реализовал страницу заявок владельца проекта
+[33m50eca0d[m Merge pull request #48 from distinkt-dd/feature/project-detail-applicant
+[33m0ed7214[m feat(requests): реализовал страницу заявок
+[33mdd97aa5[m feat: finalize project details page
+[33m9b83dc7[m Merge pull request #42 from distinkt-dd/feature/user_slice
+[33m02c90bb[m[33m ([m[1;31morigin/feature/user_slice[m[33m)[m fix: restore ProtectedRoute and dedupe MyProfilePage import after merge
+[33m6c64840[m Merge origin/dev into feature/user_slice
+[33m315d50d[m fix: use getServices for user actions after services refactor
+[33m8b207b3[m Merge branch with register page into feature/user_slice
+[33me8effca[m Merge pull request #46 from distinkt-dd/feature/projects_page
+[33m0601290[m[33m ([m[1;31morigin/feature/projects_page[m[33m)[m feat: added filter component and created projects page
+[33m630e262[m Merge pull request #45 from distinkt-dd/task/pages-policy
+[33m55e65c4[m Potential fix for pull request finding
+[33mdfbdfe4[m Potential fix for pull request finding
+[33mdd18a92[m Potential fix for pull request finding
+[33ma47420a[m Potential fix for pull request finding
+[33md9476da[m feat(pages): добавлена страница политики обработки персональных данных
+[33m327d402[m fix: api import
+[33mebf34bc[m fix: copilot comments
+[33mdd8b927[m added user slice
+[33mf9fd435[m Merge pull request #39 from distinkt-dd/auth_refreshToken
+[33mb58f385[m[33m ([m[1;31morigin/auth_refreshToken[m[33m)[m Potential fix for pull request finding
+[33m989a4c7[m refactor(auth): обновление токенов вынесено в отдельный управляющий сервис TokenManager
+[33m595a826[m Merge pull request #41 from distinkt-dd/feature/register_page
+[33mb4adb41[m Potential fix for pull request finding
+[33mc0e5d6a[m Potential fix for pull request finding
+[33mbc63524[m Potential fix for pull request finding
+[33m7f08f7e[m Potential fix for pull request finding
+[33mbc6857b[m Potential fix for pull request finding
+[33m37599b9[m Potential fix for pull request finding
+[33m41b26f7[m fix: copilot comments
+[33mfd20a74[m Merge pull request #44 from distinkt-dd/chore/review
+[33mbefc569[m Chore: Copilot instruction for review.
+[33m2bf482c[m Merge pull request #40 from distinkt-dd/task/pages-404
+[33mb9bfb1a[m added user slice
+[33m92cf90a[m feat: added register page and some shared components
+[33mfebf91d[m[33m ([m[1;31morigin/task/pages-404[m[33m)[m Potential fix for pull request finding
+[33m79e970e[m Potential fix for pull request finding
+[33me706083[m feat(pages): добавлена десктопная страница 404
+[33m745d3d1[m docs: add frontend agent instructions
+[33m106d529[m Merge pull request #34 from distinkt-dd/feature/pages_main-page
+[33m2d0b110[m[33m ([m[1;31morigin/feature/pages_main-page[m[33m)[m fix: general fixes
+[33mf0109bc[m feat: created main page
+[33ma219978[m Merge pull request #37 from distinkt-dd/feature/auth_page
+[33m07bc51b[m[33m ([m[1;31morigin/feature/auth_page[m[33m)[m fix: general fixes
+[33m93262ef[m Merge pull request #38 from distinkt-dd/auth_singletoneApi
+[33mc45c158[m[33m ([m[1;31morigin/auth_singletoneApi[m[33m)[m refactor(auth): рефакторинг api и auth сервисов в singletone
+[33mecd5d55[m feat: created auth page
+[33m1c059eb[m Merge pull request #36 from distinkt-dd/auth_LocalStorage
+[33m2899567[m[33m ([m[1;31morigin/auth_LocalStorage[m[33m)[m Merge branch 'dev' into auth_LocalStorage
+[33m114bca3[m fix(store): игнорировать persist/PAUSE и persist/PURGE в проверке сериализуемости
+[33m97b1e1a[m Merge pull request #35 from distinkt-dd/auth_protectedRoute
+[33mafaa0fd[m feat(auth): добавлено сохранение данных пользователя между сессиями через redux-persist
+[33m8e04168[m[33m ([m[1;31morigin/auth_protectedRoute[m[33m)[m feat(auth): добавлена защита роутов от неавторизованного доступа
+[33m7b24a4b[m Merge pull request #33 from distinkt-dd/general_Redux
+[33m178573b[m[33m ([m[1;31morigin/general_Redux[m[33m)[m feat(general): добавлен Redux провайдер в main.tsx
+[33m3d908f4[m feat(general): добавлен Redux провайдер в main.tsx
+[33mc85b102[m Merge pull request #31 from distinkt-dd/api-012_portfolioWorkService
+[33m23aa245[m Merge branch 'dev' into api-012_portfolioWorkService
+[33m12405ea[m Apply suggestions from code review
+[33m3d91573[m Merge pull request #32 from distinkt-dd/api-013_favoriteProjectService
+[33m9ef7bb7[m Apply suggestions from code review
+[33m433c917[m feat(api): добавлен класс запросов FavoriteProjectService
+[33m5c879c1[m feat(api): добавлен класс запросов PortfolioWorkService
+[33me10d139[m Merge pull request #30 from distinkt-dd/feature/widgets_weeklyProjects
+[33mfe2f068[m feat: added weekly projects component
+[33m27ab3e8[m Merge pull request #18 from distinkt-dd/feature/main-page-001_hero
+[33mfcaa54b[m Merge branch 'dev' into feature/main-page-001_hero
+[33mee1c1a1[m Merge pull request #29 from distinkt-dd/feature/entities_projectsList
+[33m0ae5da1[m Merge pull request #28 from distinkt-dd/TanStackQuery-001_login
+[33m97f1600[m feat: added ProjectsList component
+[33mdcaed60[m feat(auth): реализован хук для Login
+[33m8257ec4[m Merge pull request #27 from distinkt-dd/feature-model-slice_auth
+[33mc55d2ac[m feat(feature-model-slice): добавила слайс auth
+[33mba309b0[m Merge pull request #26 from distinkt-dd/api-011_membershipService
+[33me214f32[m fix(api): добавлены индексы для MembershipService
+[33m28e7bf8[m feat(api): создан класс запросов MembershipService
+[33ma000a34[m Merge pull request #22 from distinkt-dd/feature/ui-kit-007_Tag
+[33md54eabe[m Merge pull request #23 from distinkt-dd/api-008_projectService
+[33m47ab820[m Merge branch 'dev' into api-008_projectService
+[33m3d4af99[m Merge pull request #24 from distinkt-dd/api-009_projectRoleService
+[33m4102f91[m Merge branch 'dev' into api-009_projectRoleService
+[33m94d1208[m Merge pull request #25 from distinkt-dd/api-010_roleInterestService
+[33m6391f7f[m feat(api): создан класс запросов RoleInterestService
+[33mae8b137[m feat(api): создан класс запросов ProjectRoleService
+[33m9facca5[m feat(api): создан класс запросов ProjectService
+[33mf907db4[m fix: left panel background
+[33md21e1e5[m feat: added Tag component
+[33m7a30fa3[m Merge pull request #21 from distinkt-dd/feature/api-007_FieldService
+[33mf9c8e1e[m Merge branch 'dev' into feature/api-007_FieldService
+[33m6a885c5[m Merge pull request #20 from distinkt-dd/feature/api-006_SpecializationService
+[33me8403bd[m Merge branch 'dev' into feature/api-006_SpecializationService
+[33m3cca936[m Merge pull request #19 from distinkt-dd/feature/api-005_SkillService
+[33m3365df8[m Merge branch 'dev' into feature/api-005_SkillService
+[33mad889e1[m Merge pull request #17 from distinkt-dd/api-004_authService
+[33ma904c39[m Merge pull request #16 from distinkt-dd/ui-kit_style
+[33mc623278[m feat: added FieldService
+[33m75d0427[m feat: added SpecializationService
+[33mb6b407a[m feat: added SkillService
+[33ma545798[m feat: added Hero component
+[33ma92cca3[m feat(api): создан класс запросов AuthService
+[33mb57e346[m refactor(ui-kit): edit style for Button and Search
+[33mb3a34f9[m Merge pull request #14 from distinkt-dd/api-003_userService
+[33m9d75b14[m Merge pull request #15 from distinkt-dd/feature/routes-001
+[33m9661335[m feat: added routes for app navigation
+[33m9941c95[m feat(api): создан класс для запросов с uri /users/
+[33m42e84f8[m Merge pull request #13 from distinkt-dd/task-api-001
+[33m2dfd63c[m feat(constants) добавил константы
+[33m37acfe7[m Merge pull request #12 from distinkt-dd/api-002_wrapperClass
+[33mf2df511[m feat(api): создан класс обертка над http методами
+[33m897f97d[m Merge pull request #11 from distinkt-dd/swagger-docker-postman
+[33mbd26028[m feat(global): добавлен yaml файл для сервера prism
+[33m2c0adba[m chore(release): 0.0.40
+[33mb2ce028[m Merge pull request #10 from distinkt-dd/widgets-001_header
+[33mab82fec[m feat(widgets): добавила Header
+[33mb5c7cd9[m Merge pull request #8 from distinkt-dd/ui-kit-006_search
+[33m732db75[m Merge pull request #9 from distinkt-dd/feature/ui-kit-002_footer
+[33me3ab56f[m feat: created footer component
+[33m1d56579[m feat(ui-kit): добавила компонент поиска
+[33mb846121[m Merge pull request #6 from distinkt-dd/feature/ui-kit-005_toggler
+[33mcee9180[m Merge pull request #7 from distinkt-dd/ui-kit-004_input
+[33m76612e3[m feat(ui-kit): добавила компонент инпут
+[33m7d04acc[m feat: created toggler component
+[33ma63c0a2[m Merge pull request #5 from distinkt-dd/ui-kit-003_button
+[33m513d2e9[m feat(ui-kit): добавила поддержку внешнего className в компонент кнопки
+[33m48744bf[m feat(ui-kit): добавила переиспользуемый компонент кнопки
+[33me9ab195[m Merge pull request #4 from distinkt-dd/ui-kit-002_icons_svgr
+[33mc601849[m feat(ui-kit): добавила компонент управляющий иконками, настроила vite-plugin-svgr
+[33m54eda17[m Merge pull request #3 from distinkt-dd/feature/adding-base-styles
+[33m16c614b[m feat(styles): добавил базовые стили, переменные, подключил шрифты
+[33m1842190[m chore(release): 0.0.39
+[33mf9ee71e[m feat(app): подключение заготовок под стили
+[33m921ddae[m chore(release): 0.0.38
+[33m3bfc2e2[m fix(entities): features
+[33m75812a1[m chore(release): 0.0.36
+[33m08db4b4[m feat(dep): добавил линтер fsd
+[33me758d32[m chore(release): 0.0.35
+[33ma568c0f[m Merge pull request #2 from distinkt-dd/dep/configCypress
+[33mbfce29f[m feat(dep): еще один пуш с тестом
+[33m7a001d1[m chore(release): 0.0.34
+[33m47cf1bd[m chore(release): 0.0.33
+[33m8aca5ac[m chore(release): 0.0.32
+[33m5d3b370[m Merge pull request #1 from distinkt-dd/dep/configCypress
+[33mf871950[m chore(release): 0.0.31
+[33me87430e[m feat(dep): добавил первый e2e тест на запуск приложения. Тест работы cypress
+[33m9dd3639[m chore(release): 0.0.30
+[33meab5fae[m chore(release): 0.0.29
+[33m04e7a02[m test(github settings): тест блокировки пуша в dev ветку
+[33me578656[m chore(release): 0.0.28
+[33mc61d4e9[m test(тест changelog): еще один тест
+[33m3fea6e4[m chore(release): 0.0.27
+[33m4fa77e0[m chore(release): 0.0.2
+[33m5274e2d[m feat(libs): добавил все библиотеки из стека
+[33m8c6b973[m update(husky) adding pre-commit file
+[33ma71221f[m feat(husky, prettier): добавил husky, commitizen и prettier
+[33m35af2f0[m chore(release): 0.0.1
+[33m1980798[m feature(archeticture): Architecture template added
+[33mcab0109[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m initial commit

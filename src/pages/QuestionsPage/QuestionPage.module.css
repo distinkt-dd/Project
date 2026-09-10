@@ -22,3 +22,7 @@
   align-self: flex-start;
   padding-bottom: 15px;
 }
+
+.title {
+  text-transform: uppercase;
+}
